@@ -1,0 +1,24 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{center}
+    \textbf{Significance:} BlockCatch
+\end{center}
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{l|c|
+>{\columncolor[HTML]{EFEFEF}}c |
+>{\columncolor[HTML]{EFEFEF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{B3E9B4}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\cline{2-7}
+\multicolumn{1}{c|}{\textbf{C}}                      & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Markov \\ RNN bitted\end{tabular} & \begin{tabular}[c]{@{}c@{}}Markov \\ RNN\end{tabular} & \begin{tabular}[c]{@{}c@{}}RNN \\ sparse/\\ discretized\end{tabular} & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}RNN \\ discretized\end{tabular} & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}RNN\\ sparse\end{tabular} & \cellcolor[HTML]{EFEFEF}RNN \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}Markov} & 1.000                                                                                & \cellcolor[HTML]{FFFFFF}1.000                         & \cellcolor[HTML]{FFFFFF}1.000                                        & 1.000                                                                              & \begin{tabular}[c]{@{}c@{}}*\\ 0.029\end{tabular}                            & 0.087                       \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{EFEFEF}Markov RNN bitted}                                                                             & \cellcolor[HTML]{FFFFFF}0.999                         & \cellcolor[HTML]{FFFFFF}1.000                                        & 1.000                                                                              & \begin{tabular}[c]{@{}c@{}}*\\ 0.017\end{tabular}                            & 0.057                       \\ \hline
+\multicolumn{3}{|l|}{\cellcolor[HTML]{EFEFEF}Markov RNN}                                                                                                                                            & \cellcolor[HTML]{FFFFFF}1.000                                        & 1.000                                                                              & \cellcolor[HTML]{FFFFFF}0.055                                                                      & 0.146                       \\ \hline
+\multicolumn{4}{|l|}{\cellcolor[HTML]{EFEFEF}RNN sparse/discretized}                                                                                                                                                                                                       & 1.000                                                                              & \begin{tabular}[c]{@{}c@{}}*\\ 0.029\end{tabular}                            & 0.090                       \\ \hline
+\multicolumn{5}{|l|}{\cellcolor[HTML]{EFEFEF}RNN discretized}                                                                                                                                                                                                                                                                                                   & \begin{tabular}[c]{@{}c@{}}*\\ 0.015\end{tabular}                            & 0.051                       \\ \hline
+\multicolumn{6}{|l|}{\cellcolor[HTML]{EFEFEF}RNN sparse}                                                                                                                                                                                                                                                                                                                                                                                       & 1.000                       \\ \hline
+\end{tabular}%
+}

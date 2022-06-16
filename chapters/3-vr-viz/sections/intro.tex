@@ -1,0 +1,37 @@
+% some great advice from betty cheng
+% https://www.cse.msu.edu/~chengb/Writing/intro-guidelines-stirewalt.txt
+\section{Introduction}
+
+Evolution, once firmly in the domain of biologists, is now understood to be a fundamental algorithmic process with wide applicability across fields. 
+Computer scientists and engineers in particular have recently made many advances towards understanding and harnessing evolution. 
+Evolutionary dynamics have been applied, for example, to develop self-driving cars \citep{abuzekry_comparative_2019}, design radio antennae for satellites \citep{oreilly_evolved_2005} , and advance the state of the art for machine learning \citep{vikhar_evolutionary_2016}. 
+
+% Depending on space, we could potentially hammer a little more on the recent successes of evolutionary computation here
+
+Across these various domains, experts are frequently interested in understanding not only how evolution has proceeded in the past, but where it might continue in the future. 
+Such insights facilitate better understanding of the capabilities and limitations of their evolving system of interest. 
+In these cases, experts are interested in understanding the search space of their particular problem and how evolution traverses that space (hereafter called ``evolutionary space"). 
+Strong intuition for the topological properties of a given search space promote accurate inferences and predictions about how evolution will proceed in that space.
+
+%As in all data analysis tasks, data visualization is a powerful tool for gaining such intuition.
+%Good data visualizations are a particularly powerful way to build such intuition, as they do not need to rely on mathematical or domain-specific knowledge and can be broadly applicable across fields. 
+
+To facilitate this intuition, search spaces are often represented as fitness landscapes.
+In these representations of evolutionary space, high-fitness areas of the search space are represented as peaks and low-fitness areas are represented as valleys. 
+This visual metaphor is ubiquitous and powerful, and its usefulness lies in its familiarity; it draws upon topographical representations which most people will have encountered in multiple other contexts. 
+However, this familiarity can be misleading as it encourages us to think about landscapes in terms of only three spatial dimensions, whereas true evolutionary landscapes can have vastly more dimensions. 
+
+Indeed, mathematical work suggests that the fitness landscape metaphor has mislead evolution researchers. 
+High-dimensional fitness landscapes may have qualitatively different properties that lead evolution to behave very differently than it would in a low dimensional landscape \citep{agarwala_adaptive_2019}. 
+This problem has lurked in the background of evolutionary theory research for over a decade \citep{kaplan_end_2008}. 
+It is frequently stated as a caveat, but low-dimensional fitness landscapes continue to be used routinely for their immense intuition-building power.
+
+Building intuitions with a data visualization known to potentially produce misleading intuitions is not ideal. 
+To begin remedying this problem, we developed \textit{Tessevolve}, a web-enabled virtual reality (VR) based tool for visualizing fitness landscapes in 2D, 3D, and 4D. 
+This platform enables users to begin building intuition for how fitness landscapes change as they gain dimensions. 
+Additionally, it allows them to plot evolutionary data on top of the fitness landscape, to understand how the higher numbers of dimensions affect evolutionary dynamics. 
+While four dimensions is still far fewer than most real world fitness landscapes contain, the ability to compare three dimensional landscapes to four dimensional landscapes enables a substantial advance in our ability to comprehend the effects of adding dimensions.
+
+To our knowledge, Tessevolve is the first 4D visual representation of the evolution of a lineage and its surrounding landscape. 
+Furthermore, for both 3D and 4D landscapes, domain experts found Tessevolve more intuitive and easier to use than existing visualization methods. 
+Here we present the development and use cases for Tessevolve in detail, and highlight some of the insights made possible with this novel visual interface.
