@@ -15,7 +15,7 @@ These methods and metrics expand our computational toolkit for studying evolutio
 
 #### In Layman's Terms
 
-I think understanding how evolution works on a nuts-and-bolts level is really important for understanding a lot of different worldly problems related to biology: things you've probably heard a lot about, like how species will respond to climate change and how viruses respond to vaccines. I don't address those problems directly, though: I'm interested in building general tools to help other people solve their specific questions. My research is about creating those tools, testing how well they work, and introducing them to a broad audience who might be able to use them to address whatever important questions we as humans have as a whole.
+I think understanding how evolution works on a nuts-and-bolts level is really important for understanding a lot of different worldly problems related to biology: things you've probably heard a lot about, like how species will respond to climate change and how viruses respond to vaccines. A lot of what makes those problems difficult to solve is how many moving parts are involved, and how those parts connect. I don't study those connections directly, though: I'm interested in building general tools to help other people solve their specific questions related to complicated systems. My research is about creating new tools to analyze evolution, testing how well those tools work, and introducing them to a broad audience who might be able to use them to address whatever important questions we as humans have as a whole.
 
 ### When
 
