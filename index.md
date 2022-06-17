@@ -34,17 +34,17 @@ After the public portion, everyone will leave except my committee (a group of fo
 
 ### More Q+A
 
-**Q:** Is it possible you'll fail?
+**Q:** Is it possible you'll fail?  
 **A:** Ouch!! Technically, yes. Failure is always an option. But dissertation defenses typically only go forward if your advisor is confident in your ability to make the leap, and the public portion is typically a celebration of the culmination of years of work. So please don't worry!
 
-**Q:** Is there a dress code or anything?
+**Q:** Is there a dress code or anything?  
 **A:** Nope! Just show up in whatever!
 
-**Q:** Are you doing anything fun after the presentation?
+**Q:** Are you doing anything fun after the presentation?  
 **A:** There will be a happy hour in person afterwards around 3 PM. (Unless I fail, like you rudely suggested. Then it'll be a sad hour.) Location TBD.
 
-**Q:** [How big will the snake be?](https://www.mcsweeneys.net/articles/faq-the-snake-fight-portion-of-your-thesis-defense)
+**Q:** [How big will the snake be?](https://www.mcsweeneys.net/articles/faq-the-snake-fight-portion-of-your-thesis-defense)  
 **A:** I haven't seen the snake yet, so I can't assess its size. However, Emily has told me it is unlikely to be venomous.
 
-**Q:** What next?
+**Q:** What next?  
 **A:** This fall, I'm starting a job as a Visiting Assistant Professor of Computer Science at Lawrence University in Appleton, Wisconsin. Come visit me!
