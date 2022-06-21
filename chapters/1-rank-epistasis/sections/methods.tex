@@ -7,15 +7,15 @@ To evaluate a target locus with rank epistasis, do the following:
 
 \begin{enumerate}
 
-\item \textit{Choose a reference genome.} In digital systems, this may be the maximally performing organism; in biological systems, this may be the wild type. This reference genome will be used as the baseline for creating one- and two-step mutants, so it should be a genome representative of the general population of interest.
+\item \textit{Choose a reference genome.} In digital systems, this may be the maximally performing organism; in biological systems, this may be the wild type. This reference genome will be used as the baseline around which epistasis is measured, so it should be a genome representative of the general population of interest.
 
-\item \textit{For each site in the reference genome, measure the fitness effect of each one-step mutant across all non-target loci.}  For large genomes (or limited testing) it may be more tractable to sample a fixed sub-set of mutations. This step will give us a baseline for evaluating how single mutations at each site affect fitness of the entire genome.
+\item \textit{For each site in the reference genome, measure the fitness effect of each one-step mutation across all non-target loci.}  For large genomes (or limited testing) it may be more tractable to sample a fixed sub-set of mutations. This step will give us a baseline for evaluating how single mutations at each site affect fitness of the entire genome.
 
 \item \textit{Rank the single-step mutants by fitness.} The resultant list is the \textbf{reference ranking}. Ties are broken by taking the average rank of the tied candidates. 
 
 \item \textit{Apply a mutation to the target locus and repeat step 2.} This generates the set of all two-step mutants which include the target locus, so that we can evaluate how a mutation at that locus interacts with the existing mutations at all other loci.
 
-\item \textit{Rank the two-step mutants by fitness.} The resultant list is the \textbf{target ranking}. Ties are again broken by averaging across rank. This creates a ranking which reflects the relative fitness of all two-step mutants where one of the mutations is at the target locus, so that we may compare it to the relative fitness of one-step mutants \textit{without} the target locus.
+\item \textit{Rank the two-step mutants by fitness.} The resultant list is the \textbf{target ranking}. Ties are again broken by averaging across rank. This process creates a ranking which reflects the relative fitness of all two-step mutants where one of the mutations is at the target locus, so that we may compare it to the relative fitness of one-step mutants \textit{without} the target locus.
 
 \item \textit{Calculate Wilcoxon Signed-Rank Sum between the two rankings.} Using the reference and target rankings as ranked lists paired by reference locus, calculate the Wilcoxon Signed-Rank Sum of the two lists. The Wilcoxon statistic, here designated $\omega$, is used as the final measure of epistasis for the target locus, referred to as that locus's \textbf{epistatic load}. This $\omega$ reflects the difference between the two ranked lists of genomes: one containing all single-step mutants \textit{except} at a single site, and one containing all two-step mutants which \textit{include} that site. The difference between how these genomes are ranked reflects how much the mutation at the target site perturbs the fitness effects of other genes in the genotype.
 
@@ -28,7 +28,7 @@ This per-locus epistasis metric can be aggregated to measure epistasis across a 
 
 \subsection{Comparisons of Baseline Assumptions}
 
-Current metrics for epistasis take a baseline assumption of either additivity or multiplicativity; however, choosing the wrong metric will detect epistasis where none exists. Further, in genomes with both additive and multiplicative components, it is impossible to choose a correct metric as the assumption will be at least partially incorrect. Therefore, we created a mixed additive and muliplicative model genome to evaluate rank epistasis compared to traditional models with baseline assumptions.
+Current metrics for epistasis take a baseline assumption of either additivity or multiplicativity; however, choosing the wrong assumption will cause the metric to detect epistasis where none exists. Further, in genomes with both additive and multiplicative components, it is impossible to choose a correct metric as the assumption will be at least partially incorrect. Therefore, we created a mixed additive and muliplicative model genome to evaluate rank epistasis compared to traditional models with baseline assumptions.
 
 \begin{figure}
     \centering
@@ -37,9 +37,9 @@ Current metrics for epistasis take a baseline assumption of either additivity or
     \label{fig:method:admult}
 \end{figure}
 
-In this case, the genome was a vector of length $n=20$ of integers between 1 and 4, inclusive (see Fig~\ref{fig:method:admult}). The first 10 integers are summed together, and the last 10 values are multiplied together. The total fitness is the sum of these two values. None of these sites interact epistatically; changing a single site does not affect the fitness contributions of any of the other sites. However, under a baseline assumption that sites should be additive, mutations in the sites which multiply together will appear to create a larger than expected fitness effect. The reverse is true for a baseline assumption of multiplicativity when evaluating the additive sites; they will appear to create a smaller than expected fitnesse ffect. Therefore, we expect traditional metrics which take a baseline for the entire genome to incorrectly identify positive epistasis (under an additive model) or negative epistasis (under a multiplicative model). We therefore compared rank epistasis with the metric $\epsilon$, which has both an additive and multiplicative form \citep{ostman_impact_2011}. 
+In this case, the genome was a vector of length $n=20$ of integers between 1 and 4, inclusive (see Fig~\ref{fig:method:admult}). The first 10 integers are summed together, and the last 10 values are multiplied together. The total fitness is the sum of these two values. None of these sites interact epistatically; changing a single site does not affect the fitness contributions of any of the other sites. However, under a baseline assumption that sites should be additive, mutations in the sites which multiply together will appear to create a larger than expected fitness effect. The reverse is true for a baseline assumption of multiplicativity when evaluating the additive sites; they will appear to create a smaller than expected fitness effect. Therefore, we expect traditional metrics which take a baseline for the entire genome to incorrectly identify positive epistasis (under an additive model) or negative epistasis (under a multiplicative model). To determine whether rank epistasis successfully solves this problem, we compared rank epistasis with the metric $\epsilon$, which has both an additive and multiplicative form \citep{ostman_impact_2011}. 
 
-\subsection{Proof of Concept Experiments}
+\subsection{Identifying Degrees of Epistasis}
 
 
 
@@ -52,7 +52,7 @@ We tested our metric on a canonical NK landscape, where all sites have equal $K$
 
 \subsubsection{Canonical NK Landscapes}
 
-The canonical landscape allows us to establish how the rank epistasis metric tracks known degrees of interactivity on different genomes, w
+The canonical landscape allows us to establish how the rank epistasis metric tracks known degrees of interactivity on different genomes.
 Genomes in this case are bitstrings of length $N=100$.
 We then allowed the population to evolve on a given NK landscape for $t=10,000$ generations and selected the most fit individual as a reference genome for the rank epistasis algorithm. 
 For our canonical NK landscape, we tested the metric on values $K=0, 1, 2, 4, 8$. 
