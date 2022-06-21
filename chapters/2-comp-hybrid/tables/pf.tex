@@ -1,0 +1,24 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{center}
+    \textbf{Significance:} PathFollow
+\end{center}
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{l|c|
+>{\columncolor[HTML]{EFEFEF}}c |
+>{\columncolor[HTML]{EFEFEF}}c |
+>{\columncolor[HTML]{B3E9B4}}c |
+>{\columncolor[HTML]{B3E9B4}}c |
+>{\columncolor[HTML]{B3E9B4}}c |}
+\cline{2-7}
+\multicolumn{1}{c|}{\textbf{B}}                      & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Markov \\ RNN bitted\end{tabular} & \begin{tabular}[c]{@{}c@{}}Markov \\ RNN\end{tabular}                                  & \begin{tabular}[c]{@{}c@{}}RNN \\ sparse/\\ discretized\end{tabular}                   & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}RNN \\ discretized\end{tabular} & \cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}RNN\\ sparse\end{tabular} & \cellcolor[HTML]{EFEFEF}RNN                                    \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}Markov} & 0.557                                                                                & \cellcolor[HTML]{B3E9B4}\begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} & \cellcolor[HTML]{B3E9B4}\begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}               & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{EFEFEF}Markov RNN bitted}                                                                             & \cellcolor[HTML]{B3E9B4}\begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} & \cellcolor[HTML]{B3E9B4}\begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}               & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} \\ \hline
+\multicolumn{3}{|l|}{\cellcolor[HTML]{EFEFEF}Markov RNN}                                                                                                                                                                             & \cellcolor[HTML]{B3E9B4}\begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} & \begin{tabular}[c]{@{}c@{}}*\\ 0.045\end{tabular}                                  & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}               & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} \\ \hline
+\multicolumn{4}{|l|}{\cellcolor[HTML]{EFEFEF}RNN sparse/discretized}                                                                                                                                                                                                                                                          & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}               & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular} \\ \hline
+\multicolumn{5}{|l|}{\cellcolor[HTML]{EFEFEF}RNN discretized}                                                                                                                                                                                                                                                                                                                                                      & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}               & \begin{tabular}[c]{@{}c@{}}***\\ \textless{}0.001\end{tabular}             \\ \hline
+\multicolumn{6}{|l|}{\cellcolor[HTML]{EFEFEF}RNN sparse}                                                                                                                                                                                                                                                                                                                                                                                                                                          & \begin{tabular}[c]{@{}c@{}}**\\ 0.002\end{tabular}              \\ \hline
+\end{tabular}%
+}

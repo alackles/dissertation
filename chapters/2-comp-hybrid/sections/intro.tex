@@ -1,0 +1,42 @@
+\section{Introduction}
+
+The concept of cognition is a subject of study in both neuroscience and artificial intelligence.
+Studying cognition can lead to a greater theoretical understanding of what allows cognitive processes to function, as well as an understanding of how to harness these processes for problem-solving.
+Much of machine learning was inspired by the effective mechanisms found in natural systems, which may explain many of their functional similarities.
+However, while natural brains are effective at producing robust forms of general cognition, human-designed digital structures have not yet demonstrated general intelligence. 
+On the one hand, it may be that we have not gained a sufficient understanding of biological intelligence to implement it in silico. 
+On the other hand, perhaps modern computer systems simply lack some fundamental properties (such as massive parallelism) which make a direct implementation of a biological algorithm for intelligence infeasible. 
+There are a number of disparate approaches to AI based different understandings of biological systems (e.g.~ANN \citep{rosenblatt_perceptron_1958}, HTM \citep{hawkins_hierarchical_2011}, spiking neural nets \citep{ghosh-dastidar_spiking_2009}) or built up from mathematical or logical foundations (e.g.~Avida \citep{ofria_avida_2004}, Markov Brains \citep{hintze_markov_2017}, Signal GP \citep{lalejini_evolving_2018}, Tangled Program Graphs \citep{kelly_multi-task_2017}). 
+A real problem in the field is an inability to directly compare these various systems and to draw concussions across the various approaches. 
+This makes can make it difficult apply discoveries in one area of AI research to others and to relate research results from AI and neuroscience.
+Therefore, from an Artificial Life perspective, we want to expand beyond biomimetic approaches to producing machine intelligence and move towards a more holistic view that includes the underlying evolutionary processes that produced general cognition in nature.
+
+Evolution took billions of years to produce agents that engage in intelligent behavior; we would prefer not to wait that long.
+While evolution in natural systems is driven by an underlying stochastic process, we are not restricted by the rate of random occurrences of beneficial mutations. 
+We can take a more directed approach by systematically studying the evolution of cognition in digital systems. 
+Ideally, we want to provide hands-on guidance to produce AI in a much shorter time, while simultaneously harnessing the creative and constructive potential of evolution to allow our digital systems to reach their full utility.  
+To bootstrap this process, we must conduct a systematic study of potential evolutionary building blocks and underlying representations that are both computationally efficient and effective for evolving cognition.
+
+Previous work has often compared whole neural architectures' performance on a particular task of interest.
+For example, algorithm performance has been studied in detail on tasks such as general classification \citep{williams_preliminary_2006,singh_review_2016, binkhonain_review_2019}, text recognition \citep{khan_review_2019}, disease prediction \citep{uddin_comparing_2019}, and ecological modeling \citep{crisci_review_2012}, to name a few.
+However, due to the numerous details related to design and parameterization of any particular structure, performance comparisons can not necessarily reveal why one structure outperforms another, nor investigate how their component parts may account for the results. 
+
+Some work, particularly in algorithm optimization, has dealt with combining components of multiple structures to create efficient computational hybrids.
+One such technique is the ``Buffet Method", which allows a computational structure to access an array of different types of information processing sub-structures during the evolutionary process\citep{hintze_evolutionary_2019} and shows that the proportion of sub-structures used in the evolved solutions is task dependent. 
+Another method known as ``Auto ML" is designed to evolve a substrate from basic mathematical principles \citep{real_automl-zero_2020}. 
+While these methods have been successful in optimizing task performance, they rarely look ``under the hood" at the exact variables responsible for cognitive success.
+
+Our goal here is to demonstrate an approach for comparing cognitive substrates that allows us to identify which aspects of each substrate confer strengths in evolving solutions to cognitive processing tasks.
+Here, ``substrate" refers to the virtual hardware underlying each digital representation---that is, the stuff from which each model of cognition is built. 
+This concept of comparing two brains by testing hybrids based on these differences is what we have termed the \textit{Comparative Hybrid Approach}. 
+In this approach, we first identify the minimal number of differences between each substrate and then develop hybrid versions which represent intermediate forms. 
+These are evaluated on different cognitive tasks in order to determine if some of the identified differences can account for performance variance.
+While our current focus is on only two such systems, a wider application of this approach will allow us to isolate properties of different types of components across more substrates and ultimately provide clearer guidance for designing new types of evolvable cognition.
+
+This method is similar to knock out experiments in biology, where some aspect of a system is disabled and tests are conducted to identify changes to the system's response as a whole.
+
+The conceptual backing for this method could be extended to more complex systems, from comparisons between more divergent digital structures to, simulations of accurate biologically-based models, or even actual biological systems (although this would require the ability to manipulate biological structures in a controlled manner).
+
+In this work we compare Markov Brains and Recurrent Artificial Neural Networks (RNNs). 
+In particular we identify differences in the logic that each brain has access to, how the logic units are connected (sparsity), and how memories are stored (discretization). 
+We find that, while we observed performance differences on each axis of change, discretization in particular was the strongest indicator of task performance.

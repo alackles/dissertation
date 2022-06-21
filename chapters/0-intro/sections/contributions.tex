@@ -1,0 +1,38 @@
+\section{Contributions}
+
+This thesis is organized into three chapters, each introducing a novel method or metric to investigate some aspect of connectivity in evolvable systems. 
+
+\subsection{Genotype: Rank Epistasis}
+
+In Chapter 2, I introduce rank epistasis, a new tool for assessing levels of genome connectivity without baseline interaction assumptions. 
+Epistasis refers to multiple genes interacting to create a single phenotype, and it is a key component of complex genetic architectures \citep{khan_negative_2011, weinreich_should_2013, wiser_long-term_2013, gupta_shared_2016, payne_causes_2019}. 
+If loci are epistatic, the fitness effects of individual mutations at each loci may not fully determine their combined fitness effect. 
+Determining how strong epistatic interactions are at individual sites or for individual genes is therefore an important problem in evolutionary biology if we are to understand fitness landscapes \citep{cordell_epistasis_2002, weinreich_should_2013}. 
+However, challenges arise when measuring epistatic load in part because existing metrics require a baseline expectation against which to compare epistatic interactions, which may be incomplete or incorrect \citep{puniyani_meaning_2004}.
+
+We therefore developed a new rank-based epistasis metric, \textit{rank epistasis}, which makes no assumptions about baseline interactions.
+We find that this metric is able to correctly detect lack of epistasis where existing metrics fail, as well as distinguish between different levels of epistatic activity.
+
+\subsection{Phenotype: Comparative Hybrid Method}
+
+In Chapter 3, I introduce the Comparative Hybrid Method to investigate how connectivity in computational structure impacts computational performance on a holistic level. 
+Understanding the structure and evolution of cognition is a topic of broad scientific interest. 
+Computational substrates are ideal for conducting investigations into this topic because they can be incorporated in rapidly evolving Artificial Life systems and are easy to manipulate.
+However, design differences between currently existing digital systems make it difficult to identify which manipulations are responsible for broad patterns in evolved behavior, and current methods rarely look at how the underlying structural differences between systems influence cognition \citep{hintze_evolutionary_2019, real_automl-zero_2020}. 
+Identifying influential cognitive components is further confounded if we are trying to disentangle how multiple features interact.
+
+Therefore, we developed an approach we termed the \textit{Comparative Hybrid Method} to systematically analyze components from two evolvable digital neural substrates.
+We identified elements of the logic and memory storage architectures in each substrate, then altered and recombined properties of the original substrates to create hybrid substrates. 
+We identified both connectedness of the internal network and discreteness of memory as an important determinants of performance across our test conditions.
+
+\subsection{Landscape: Tessevolve}
+
+In Chapter 4, I introduce Tessevolve, a new platform for intuitively investigating how the mutational network connectivity between different areas of a fitness landscape scales with dimensionality. 
+Evolutionary fitness landscapes are a topographical representation of the many parameters organisms must balance for evolutionary success, and are a popular visualization tool for building intuition about the nature of evolution \citep{wright_roles_1932}. 
+However, these relief-map inspired visualizations are traditionally limited to only two evolutionary parameters, which can severely mislead our intuition about the full nature of the landscape \citep{kaplan_end_2008, agarwala_adaptive_2019}. 
+
+To help combat this problem, we have developed \textit{Tessevolve}, a web-enabled virtual reality (VR) based platform for evolutionary landscape visualization in 2, 3, or 4 dimensions. 
+In this chapter we describe the full visualization pipeline for Tessevolve from evolutionary landscape data to VR visualization. 
+We render the evolutionary landscape as a series of spheres whose coordinates represent evolutionary parameters and whose color represents fitness. For 2D and 3D landscapes, the entire landscape is displayed at once. 
+For 4D landscapes, users can scroll through 3D slices of the landscape to watch the colors shift as a representation of the fourth dimension. In each dimension, landscapes are overlaid with phylogenetic lineage data to display changing dynamics as dimensions increase. 
+We find that the ability to view landscapes in 2D, 3D, and 4D under the same visualization scheme leads to a stronger intuition about the effect of dimensionality on landscape connectivity therefore traversability. 
