@@ -52,7 +52,7 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage{tocloft}
 \usepackage{url}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage[table]{xcolor}
 % \usepackage [latin1]{inputenc}
 
@@ -65,28 +65,27 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlength{\bibsep}{12pt}
+
 %%% Use the following to format your titles for the Table of Contents, List of Figures, List of Tables. 
-%\renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries\MakeUppercase}
-\setlength{\cftaftertoctitleskip}{-0.1in}
-\setlength{\cftbeforetoctitleskip}{-0.65in}
-\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\contentsname}{\large\begin{center}{TABLE OF CONTENTS}\end{center}}
+\setlength{\cftbeforetoctitleskip}{-0.3in}
+\setlength{\cftaftertoctitleskip}{0.375in}
+\renewcommand{\cfttoctitlefont}{\Large\bfseries}
+\renewcommand{\contentsname}{\begin{center}\large{TABLE OF CONTENTS}\end{center}}
 
 % Add dot leaders to the chapter entries in the TOC
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
-\setlength{\cftbeforeloftitleskip}{-0.17in}
-\setlength{\cftafterloftitleskip}{0.1875in}
-\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftafterloftitle}{\hfill}
-\renewcommand{\listfigurename}{\large\centering{LIST OF FIGURES}}
+\setlength{\cftbeforelottitleskip}{-0.3in}
+\setlength{\cftafterlottitleskip}{0.375in}
+\renewcommand{\cftlottitlefont}{\Large\bfseries}
+\renewcommand{\listtablename}{\begin{center}\large{LIST OF TABLES}\end{center}}
 
-\setlength{\cftbeforelottitleskip}{-0.33in}
-\setlength{\cftafterlottitleskip}{0.3875in}
-\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftafterlottitle}{\hfill}
-\renewcommand{\listtablename}{\large\centering{LIST OF TABLES}}
+\setlength{\cftbeforeloftitleskip}{-0.3in}
+\setlength{\cftafterloftitleskip}{0.365in}
+\renewcommand{\cftloftitlefont}{\Large\bfseries}
+\renewcommand{\listfigurename}{\begin{center}\large{LIST OF FIGURES}\end{center}}
+
 
 %%% Bibliography setup for TOC and The Final Page %%%%
 \renewcommand{\bibname}{\vspace*{-0.95in} \large\centering{BIBLIOGRAPHY}}
@@ -113,6 +112,10 @@
 \renewcommand\chaptername{Chapter}
 \renewcommand\cftchappresnum{\chaptername\space}
 \setlength{\cftchapnumwidth}{\widthof{\textbf{Chapter~999~}}}
+
+%%% Include subsubsections 
+
+\setcounter{tocdepth}{3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -175,6 +178,8 @@
 
 \newsavebox{\savefig}
 
+\def\bibfont{\normalsize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%  Include any definitions you wish to use throughout the dissertation:
@@ -192,7 +197,7 @@
 %%%  Title Page:
 \begin{titlepage}
 \begin{center}
-\ \\[1in]%
+\ \\[0.5in]%
 \MakeUppercase{\thesisTitle}\\
 \begin{doublespace}
 By\\ %
@@ -223,30 +228,45 @@ Ecology, Evolutionary Biology, and Behavior - Dual Major
 \pagenumbering{roman}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % == Abstract ==
-\thispagestyle{empty} \setcounter{page}{4}
-\begin{doublespace}
+\pagestyle{empty}
 \begin{centering}
+\begin{doublespace}
 ABSTRACT \\ %
+\end{doublespace}
 \MakeUppercase{\thesisTitle} \\ %
+\begin{doublespace}
 By \\ %
 \authorName \\ %
+\end{doublespace}
 \end{centering}
-
+\begin{doublespace}
 \input{abstract}
-
 \end{doublespace}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addtocounter{page}{-2}%
+
+\fancypagestyle{mylandscape}{%
+  \fancyhf{}% Clear header/footer
+  \fancyfoot{% Footer
+    \makebox[\textwidth][r]{% Right
+      \rlap{\hspace{-.13in}%\footskip}% Push out of margin by \footskip
+        \smash{% Remove vertical height
+          \raisebox{\dimexpr.5\baselineskip+\footskip+.66\textheight}{% Raise vertically
+            \rotatebox{90}{\thepage}}}}}}% Rotate counter-clockwise
+  \renewcommand{\headrulewidth}{0pt}% No header rule
+  \renewcommand{\footrulewidth}{0pt}% No footer rule
+}
+
+\addtocounter{page}{-1}%
 
 %%%%  Copyright page:
 \thispagestyle{empty}
 \mbox{}\vspace{6in}\\
-\begin{flushright}
+\begin{flushleft}
 Copyright by \\
 \MakeUppercase{\authorName} \\
 \graduationYear \\
-\end{flushright}
+\end{flushleft}
 \newpage
 
 
@@ -266,7 +286,7 @@ Copyright by \\
 \vspace{5ex}
 ACKNOWLEDGEMENTS \par
 \end{centering}
-\vspace{\baselineskip}
+\vspace{36pt}
 
 \begin{doublespace}
 
@@ -276,9 +296,7 @@ ACKNOWLEDGEMENTS \par
 \newpage
 
 
-\begin{singlespace}
 \tableofcontents %
-
 \newpage
 
 %%%  List of tables:
@@ -295,6 +313,7 @@ ACKNOWLEDGEMENTS \par
 %%%  List of Figures:
 \addcontentsline{toc}{chapter}{LIST OF FIGURES}
 
+\begin{singlespace}
 \makeatletter
 \let\l@figureOLD \l@figure
 \renewcommand{\l@figure}{\vspace{\baselineskip}\l@figureOLD}
@@ -360,9 +379,18 @@ BIBLIOGRAPHY
 \end{center}
 
 \newpage
+
+
+\renewcommand\bibsection{%
+   \clearpage
+   \centering\noindent\normalsize\MakeUppercase{Bibliography}%
+   \vspace{24pt}
+   \markboth{\MakeUppercase{Bibliography}}{\MakeUppercase{Bibliography}}%
+  }
+
 \begin{singlespace}
-\bibliographystyle{apalike}% your bst file here
-\bibliography{references} %your bib file here
+\normalsize{ \bibliographystyle{apalike}% your bst file here
+\bibliography{references}} %your bib file here
 \end{singlespace}
 \end{doublespace}
 \end{document}
