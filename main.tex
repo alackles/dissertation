@@ -48,13 +48,11 @@
 \usepackage{subcaption}
 \usepackage{tabulary}
 \usepackage{tabu}
-% \usepackage[euler]{textgreek}
 \usepackage[flushleft]{threeparttable}
 \usepackage{tocloft}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 \usepackage[table]{xcolor}
-% \usepackage [latin1]{inputenc}
 
 %%% Colors for tracking changes. %%%
 %%% Use: \cut{<Text you want to cut.>} -> Makes the text red.
@@ -68,23 +66,26 @@
 \setlength{\bibsep}{12pt}
 
 %%% Use the following to format your titles for the Table of Contents, List of Figures, List of Tables. 
-\setlength{\cftbeforetoctitleskip}{-0.3in}
-\setlength{\cftaftertoctitleskip}{0.375in}
-\renewcommand{\cfttoctitlefont}{\Large\bfseries}
-\renewcommand{\contentsname}{\begin{center}\large{TABLE OF CONTENTS}\end{center}}
+\cftsetindents{tab}{0em}{0em}
+\cftsetindents{fig}{0em}{0em}
+
+\setlength{\cftbeforetoctitleskip}{-.25in}
+\setlength{\cftaftertoctitleskip}{0.4in} % 0.65 in - 0.25 in
+\renewcommand{\cfttoctitlefont}{\normalfont}
+\renewcommand{\contentsname}{\begin{center}TABLE OF CONTENTS\end{center}}
 
 % Add dot leaders to the chapter entries in the TOC
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
-\setlength{\cftbeforelottitleskip}{-0.3in}
-\setlength{\cftafterlottitleskip}{0.375in}
-\renewcommand{\cftlottitlefont}{\Large\bfseries}
-\renewcommand{\listtablename}{\begin{center}\large{LIST OF TABLES}\end{center}}
+\setlength{\cftbeforelottitleskip}{-.25in}
+\setlength{\cftafterlottitleskip}{0.4in}
+\renewcommand{\cftlottitlefont}{\normalfont}
+\renewcommand{\listtablename}{\begin{center}LIST OF TABLES\end{center}}
 
-\setlength{\cftbeforeloftitleskip}{-0.3in}
-\setlength{\cftafterloftitleskip}{0.365in}
-\renewcommand{\cftloftitlefont}{\Large\bfseries}
-\renewcommand{\listfigurename}{\begin{center}\large{LIST OF FIGURES}\end{center}}
+\setlength{\cftbeforeloftitleskip}{-.25in}
+\setlength{\cftafterloftitleskip}{0.35in} % no idea why these shift so much
+\renewcommand{\cftloftitlefont}{\normalfont}
+\renewcommand{\listfigurename}{\begin{center}LIST OF FIGURES\end{center}}
 
 
 %%% Bibliography setup for TOC and The Final Page %%%%
@@ -116,20 +117,23 @@
 %%% Include subsubsections 
 
 \setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\fancypagestyle{mylandscape}{%
-  \fancyhf{}% Clear header/footer
-  \fancyfoot{% Footer
-    \makebox[\textwidth][r]{% Right
-      \rlap{\hspace{-.13in}%\footskip}% Push out of margin by \footskip
-        \smash{% Remove vertical height
-          \raisebox{\dimexpr.5\baselineskip+\footskip+.66\textheight}{% Raise vertically
-            \rotatebox{90}{\thepage}}}}}}% Rotate counter-clockwise
-  \renewcommand{\headrulewidth}{0pt}% No header rule
-  \renewcommand{\footrulewidth}{0pt}% No footer rule
-}
+% If you need landscape pages
+
+%\fancypagestyle{mylandscape}{%
+%  \fancyhf{}% Clear header/footer
+%  \fancyfoot{% Footer
+%    \makebox[\textwidth][r]{% Right
+%      \rlap{\hspace{-.13in}%\footskip}% Push out of margin by \footskip
+%        \smash{% Remove vertical height
+%          \raisebox{\dimexpr.5\baselineskip+\footskip+.66\textheight}{% %Raise vertically
+%            \rotatebox{90}{\thepage}}}}}}% Rotate counter-clockwise
+%  \renewcommand{\headrulewidth}{0pt}% No header rule
+%  \renewcommand{\footrulewidth}{0pt}% No footer rule
+%}
 
 %%% Renew command for full page figures:
 \renewcommand{\topfraction}{1.0}
@@ -190,7 +194,6 @@
 %%%  Begin the actual dissertation:
 \begin{document}
 \sloppy
-\pagenumbering{gobble}
 
 %\layout
 
@@ -225,7 +228,8 @@ Ecology, Evolutionary Biology, and Behavior - Dual Major
 \newpage
 
 %%% Set the page numbering scheme:
-\pagenumbering{roman}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % == Abstract ==
 \pagestyle{empty}
@@ -243,21 +247,8 @@ By \\ %
 \input{abstract}
 \end{doublespace}
 \newpage
+\pagestyle{plain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\fancypagestyle{mylandscape}{%
-  \fancyhf{}% Clear header/footer
-  \fancyfoot{% Footer
-    \makebox[\textwidth][r]{% Right
-      \rlap{\hspace{-.13in}%\footskip}% Push out of margin by \footskip
-        \smash{% Remove vertical height
-          \raisebox{\dimexpr.5\baselineskip+\footskip+.66\textheight}{% Raise vertically
-            \rotatebox{90}{\thepage}}}}}}% Rotate counter-clockwise
-  \renewcommand{\headrulewidth}{0pt}% No header rule
-  \renewcommand{\footrulewidth}{0pt}% No footer rule
-}
-
-\addtocounter{page}{-1}%
 
 %%%%  Copyright page:
 \thispagestyle{empty}
@@ -269,6 +260,8 @@ Copyright by \\
 \end{flushleft}
 \newpage
 
+\pagenumbering{roman}
+\setcounter{page}{5}
 
 %%%%  Dedication:
 \begin{centering}
@@ -286,9 +279,8 @@ Copyright by \\
 \vspace{5ex}
 ACKNOWLEDGEMENTS \par
 \end{centering}
-\vspace{36pt}
-
 \begin{doublespace}
+\vspace{0.575in} % two double spaces (approx)
 
 \input{ack}
 
@@ -338,10 +330,9 @@ ACKNOWLEDGEMENTS \par
 \begin{doublespace}
 
 
-
 %% Change this for spacing:
 %\onehalfspacing
-\linespread{1.2}
+%\linespread{1}
 
 %%%  Include the chapters of your dissertation:
 %%% Use format: \include{<file here>(No Extension)}
@@ -384,7 +375,7 @@ BIBLIOGRAPHY
 \renewcommand\bibsection{%
    \clearpage
    \centering\noindent\normalsize\MakeUppercase{Bibliography}%
-   \vspace{24pt}
+   \vspace{0.5in}
    \markboth{\MakeUppercase{Bibliography}}{\MakeUppercase{Bibliography}}%
   }
 
